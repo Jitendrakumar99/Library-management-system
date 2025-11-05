@@ -1,0 +1,82 @@
+/* Popup Message Styles */
+.popup-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    min-width: 300px;
+    max-width: 400px;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateX(400px);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+.popup-message.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.popup-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.popup-icon {
+    font-size: 24px;
+    font-weight: bold;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.popup-text {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 500;
+    color: white;
+}
+
+.popup-success {
+    background: linear-gradient(135deg, #43a047, #2e7d32);
+}
+
+.popup-success .popup-icon {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.popup-error {
+    background: linear-gradient(135deg, #e53935, #c62828);
+}
+
+.popup-error .popup-icon {
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Hidden message containers for flash messages */
+#successMessage,
+#errorMessage {
+    display: none;
+}
+
